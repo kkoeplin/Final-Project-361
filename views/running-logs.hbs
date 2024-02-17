@@ -1,0 +1,129 @@
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/styles.css">
+<div class="navbar">
+    <a class="nav" href="/home">Home Page</a>
+    <a href="/goals">Goals</a>
+    <a href="/index">Sign in or Sign Up </a>
+    <a href="/progress">Progress</a>
+</div>
+
+<h1>Running Log</h1>
+<div class="button-container">
+  <a href="#add-running-log-form-ajax" class="add-goal-button icon-button" title="Add New Goal">
+    <i class="material-icons">Add Log Entry</i>
+  </a>
+  <a href="#update-running-log-form-ajax" class="update-goal-button icon-button" title="Update New Goal">
+    <i class="material-icons">Edit Log Entry</i>
+  </a>
+</div>
+
+<h2>Filter</h2>
+<p>Filter you running log table by a certain goal</p>
+<form id="search-goal-form" method="GET" action="/search-goals">
+    <label for="search-goal-dropdown">Select Goal:</label>
+    <select name="search-goal-dropdown" id="search-goal-dropdown">
+    </select>
+    <input type="submit" value="Search" class="submit-button">
+    <button type="button" onclick="resetSearch()">Reset</button>
+</form>
+
+<h3>Your Log</h3>
+<table style="width: 80%; border-collapse: collapse; margin-top: 20px;" id="running-log-table">
+    <thead style="background-color: #555; color: white;">
+        <tr>
+            <th style="padding: 8px; text-align: left;">ID</th>
+            <th style="padding: 8px; text-align: left;">Goal</th>
+            <th style="padding: 8px; text-align: left;">Distance (miles)</th>
+            <th style="padding: 8px; text-align: left;">Duration (minutes)</th>
+            <th style="padding: 8px; text-align: left;">Notes</th>
+            <th style="padding: 8px; text-align: left;">Pace (min/mile)</th>
+            <th style="padding: 8px; text-align: left;">Date</th>
+            <th style="padding: 8px; text-align: left;">Delete</th>
+        </tr>
+    </thead>
+    <tbody id="running-log-table-body">
+        {{#each data}}
+            <tr>
+                <td style="padding: 8px;">{{this.id}}</td>
+                <td style="padding: 8px;">{{this.goalName}}</td>
+                <td style="padding: 8px;">{{this.distance}}</td>
+                <td style="padding: 8px;">{{this.duration}}</td>
+                <td style="padding: 8px;">{{this.notes}}</td>
+                <td style="padding: 8px;">{{this.pace}}</td>
+                <td style="padding: 8px;">{{this.date}}</td>
+                <td>
+                 <button onclick="confirmDelete('{{this.id}}')">Delete</button>
+                </td>
+            </tr>
+        {{/each}}
+        
+    </tbody>
+</table>
+
+
+
+<!-- Form for adding a new running log entry -->
+<h2>Add a New Running Log Entry</h2>
+<p>To add a new run, please enter the information below and click `Submit`!</p>
+<p>Under the goal drop down please select the goal you would like your log entry to be applied too.</p>
+<form id="add-running-log-form-ajax">
+    <label for="input-goalId">Goal: </label>
+    <select name="input-goalId" id="input-goalId">
+        {{#each data}}
+            <option value="{{this.goalId}}" data-goalName="{{this.goalName}}">{{this.goalName}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-distance">Distance (miles): </label>
+    <input type="number" step="0.01" name="input-distance" id="input-distance" required>
+    
+    <label for="input-duration">Duration (minutes): </label>
+    <input type="number" name="input-duration" id="input-duration" required>
+
+    <label for="input-notes">Notes: </label>
+    <input type="text" name="input-notes" id="input-notes">
+
+    <label for="input-date">Date: </label>
+    <input type="date" id="input-date" name="input-date" required>
+
+    <input type="submit">
+</form>
+
+<h2>Updating a Running Log Entry</h2>
+<p>To update a specific running log entry, select the ID from the drop-down menu on the left.</p>
+<form id="update-running-log-form-ajax">
+    <label for="input-id">Log ID: </label>
+    <select name="input-id" id="mySelect">
+        <option value="0">Select a ID number to update </option>
+        {{#each data}}
+            <option value="{{this.id}}">{{this.id}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-distance-update">New Distance (miles): </label>
+    <input type="number" step="0.01" name="input-distance-update" id="input-distance-update" required>
+    
+    <label for="input-duration-update">New Duration (minutes): </label>
+    <input type="number" name="input-duration-update" id="input-duration-update" required>
+
+    <label for="input-notes-update">New Notes: </label>
+    <input type="text" name="input-notes-update" id="input-notes-update">
+
+    <input type="submit" class="submit-button">
+</form>
+
+
+<script src="./js/updatelog.js"></script>
+<script src="./js/deletelog.js"></script>
+<script src="./js/createlog.js"></script>
+
+
+<script>
+    function confirmDelete(runId) {
+        if (confirm("Are you sure you want to delete this run?")) {
+            deleteRunningLog(runId);
+        }
+    }
+</script
+

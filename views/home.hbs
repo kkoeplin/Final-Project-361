@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>User Home</title>
+        <style>
+        /* CSS for centering */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+            margin: 0; 
+        }
+
+        header, main {
+            text-align: center; 
+            max-width: 600px; 
+        }
+
+       
+        .user-profile img {
+            width: 600px; /* Set width of profile picture */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Make image circular */
+            margin-top: 20px; 
+        }
+        .navbar {
+            background-color: #555;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Your Running Tracker Dashboard</h1>
+        <div class="navbar">
+            <a href="/goals">Goals</a>
+            <a href="/index">Sign in or Sign Up </a>
+            <a href="/progress">Progress</a>
+            <a href="/running-logs">Running Logs</a>
+        </div>
+    </header>
+
+    <header>
+        
+        <h1>Runners World</h1>
+        <P>Welcome to our fitness community, where you can embark on your journey to better health and fitness. Choose personalized goals to accomplish, connect with like-minded runners, log your workouts with ease, and work towards sustaining a lasting exercise schedule. Whether you're aiming to improve your speed, distance, or overall fitness level, our platform offers a comprehensive set of features to support your fitness goals. With a user-friendly interface and a vibrant community of runners, getting started is easy, motivating, and fun. Join us today and take the first step towards achieving your fitness aspirations</P>
+    </header>
+
+    <main>
+        <section class="user-profile">
+            <h2>User Profile</h2>
+            <p>Name: Krista</p> 
+            <p>Email: kk@example.com</p> 
+    
+            <p>Weight: 120 lbs</p>
+            <p>Height: 5'4"</p>
+            <p>Age: 32</p>
+            <img src="images/1.jpg" alt="Profile Picture">
+
+        </section>
+
+        <section class="completed-goals">
+            <h2>Selected Active Goals</h2>
+            <ul class="selected-goals-list">
+                <li>
+                    <p>Date: January 1, 2024</p>
+                    <p>Goal: Run a 5k </p>
+                    <P>Progress: 50%</P>
+                </li>
+            </ul>
+        </section>
+
+        <section class="completed-goals">
+            <h2>Completed Goals</h2>
+            <ul class="completed-goals-list">
+                <li>
+                    <p>Date: January 1, 2024</p>
+                    <p>Goal: Run 5 miles without stopping</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>
+
