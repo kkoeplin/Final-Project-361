@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<div class="navbar">
+    <a class="nav" href="/home">Home Page</a>
+    <a href="/running-logs">Running Log</a>
+    <a href="/index">Sign in or Sign Up </a>
+    <a href="/progress">Progress</a>
+</div>
+
+<body>
+    <header>
+        <h1>Welcome to the Goals Page</h1>
+        <P>Choose goals you would like to work on. As you log you runs you can specify which goal you where working on completing for that log entry</P>
+        <p>Choosing a goal allows you to stay motivated and creat a more interactive expierence with friends and family by sharing you completed goals</p>
+    </header>
+
+    <main>
+        <section class="goals-section">
+            <h2>Running Goals</h2>
+            <div class="goal">
+                
+                <h3>Complete a 5k race</h3>
+                <p>Run a 5k race within a specific time frame.</p>
+                <button onclick="addGoal('Complete a 5k race')">Add Goal</button>
+            </div>
+            <div class="goal">
+                
+                <h3>Run a half marathon</h3>
+                <p>Train and complete a half marathon.</p>
+                <button onclick="addGoal('Run a half marathon')">Add Goal</button>
+            </div>
+            <div class="goal">
+                
+                <h3>Run 50 miles total</h3>
+                <p>Log multiple runs adding to 50 miles total</p>
+                <button onclick="addGoal('Run 50 miles')">Add Goal</button>
+            </div>
+            <div class="goal">
+                
+                <h3>Run 15 miles a week</h3>
+                <p>Within 7 days run a total of 15 miles</p>
+                <button onclick="addGoal('Run 15 miles per Week')">Add Goal</button>
+            </div>
+        </section>
+    </main>

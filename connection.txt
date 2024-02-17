@@ -1,0 +1,2 @@
+mysql -u cs361_koeplink -h classmysql.engr.oregonstate.edu -p
+blznk3Nr2lPm
